@@ -1,0 +1,23 @@
+.btn.btn-secondary{
+    background-color: #a5a5a5;
+    border: 0px;
+    text-align: left;
+    padding: 1rem;
+    color: black;
+}
+.btn.btn-secondary.next-btn{
+    margin: 15px 0px;
+    width: 6rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: #44958c;
+}
+
+
+
+
+
