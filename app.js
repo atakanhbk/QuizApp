@@ -30,7 +30,6 @@ function ClickedAnswerButton(e) {
         e.style.backgroundColor = 'red';
         resultsX[0].style.display = 'block';
         resultsX[0].parentNode.style.backgroundColor = 'black';
-        
     }
 
     TurnOffAllButtons();
