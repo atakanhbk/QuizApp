@@ -2,6 +2,7 @@
 let answerBtn = document.querySelectorAll(".answer-btn");
 let resultsCheck = document.querySelectorAll(".fa-check");
 let resultsX = document.querySelectorAll(".fa-x");
+let nextBtn = document.querySelector(".next-btn");
 
 
 
@@ -12,10 +13,13 @@ let resultsX = document.querySelectorAll(".fa-x");
 function AddAllButtonsEvents() {
     answerBtn.forEach(element => {
         element.addEventListener('click', function () {
-            ClickedAnswerButton (element);
+            ClickedAnswerButton(element);
         })
-        
     });
+
+    nextBtn.addEventListener('click', function () {
+        window.location='index2.html';
+    })
 }
 
 
@@ -25,7 +29,7 @@ function ClickedAnswerButton(e) {
         resultsCheck[0].style.display = 'block';
         resultsCheck[0].parentNode.style.backgroundColor = 'green';
     }
-    else{
+    else {
         e.style.backgroundColor = 'red';
         resultsX[0].style.display = 'block';
         resultsX[0].parentNode.style.backgroundColor = 'black';
