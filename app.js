@@ -10,6 +10,7 @@ AddQuestionNumber();
 CheckResults();
 
 var questionNumberInt = parseInt(localStorage.getItem("questionNumber"));
+var userCanSkipNextQuestion = false;
 
 
 function AddAllButtonsEvents() {
@@ -22,24 +23,28 @@ function AddAllButtonsEvents() {
 
     nextBtn.addEventListener('click', function () {
 
-        let indexName = 'index' + (questionNumberInt + 2) + '.html';
+        if (userCanSkipNextQuestion) {
+            let indexName = 'index' + (questionNumberInt + 2) + '.html';
 
-        if (questionNumberInt < 2) {
-            window.location = indexName;
+            if (questionNumberInt < 2) {
+                window.location = indexName;
 
-            console.log(parseInt(indexName));
-            localStorage.setItem("questionNumber", questionNumberInt + 1);
+                console.log(parseInt(indexName));
+                localStorage.setItem("questionNumber", questionNumberInt + 1);
+            }
+            else {
+                localStorage.clear();
+                window.location = "index.html";
+            }
+
         }
-        else {
-            localStorage.clear();
-            window.location = "index.html";
-        }
-
 
 
 
 
     })
+
+
 }
 
 function AddQuestionNumber() {
@@ -101,7 +106,7 @@ function CheckResults() {
 function ClickedAnswerButton(e) {
 
     let results;
-
+    userCanSkipNextQuestion = true;;
 
     if (localStorage.getItem("window.location") === null) {
         results = [];
@@ -112,15 +117,13 @@ function ClickedAnswerButton(e) {
     }
 
     if (e.value == "correct") {
-        console.log(resultsCheck);
         e.style.backgroundColor = 'green';
-        resultsCheck[2].style.display = 'block';
-        resultsCheck[2].parentNode.style.backgroundColor = 'green';
+        resultsCheck[questionNumberInt].style.display = 'block';
+        resultsCheck[questionNumberInt].parentNode.style.backgroundColor = 'green';
         results.push(1);
 
     }
     else {
-        console.log(resultsX);
         e.style.backgroundColor = 'red';
         resultsX[questionNumberInt].style.display = 'block';
         resultsX[questionNumberInt].parentNode.style.backgroundColor = 'black';
