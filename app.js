@@ -5,6 +5,7 @@ let resultsX = document.querySelectorAll(".fa-x");
 let nextBtn = document.querySelector(".next-btn");
 
 
+
 AddQuestionNumber();
 
 CheckResults();
@@ -136,6 +137,7 @@ function ClickedAnswerButton(e) {
 
     TurnOffAllButtons();
 }
+
 
 function TurnOffAllButtons() {
     answerBtn.forEach(element => {
